@@ -1,15 +1,22 @@
 version: 0.2
-phases:
-  pre_build:
-    commands:
-      - echo Installing source NPM dependencies...
-  build:
-    commands:
-      - echo Build started on `date`
-      - echo Compiling the Node.js code
-  post_build:
-    commands:
-      - echo Build completed on `date`
+
+phases: 
+    install:
+        runtime-versions:
+            nodejs: 16
+        commands:
+            - echo "📦 installing packages..."
+            - echo "✅ Packages installed successfully."
+    build:
+        commands:
+            - echo "🚧 Starting compiling packages..."
+            - echo "✅ Build passed successfully."
+    post_build:
+        commands:
+            - echo "🚚 Performing post-build packing and operations..."
+            - echo "✅ Post build successful"
+
 artifacts:
   files:
     - '**/*'
+  name: deploy-nodejs-build-artifacts
