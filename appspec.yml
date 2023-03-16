@@ -1,20 +1,13 @@
 version: 0.0
 os: linux
-
 files:
   - source: /
-    destination: /home/ec2-user/server
-
+    destination: /usr/share/nginx/html
+    overwrite: true
 hooks:
   BeforeInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 20
-      runas: root
-  ApplicationStart:
-    - location: scripts/start_server.sh
-      timeout: 20
-      runas: root
-  ValidateService:
-    - location: scripts/validate_service.sh
-      timeout: 120
-      runas: root
+    - location: scripts/BeforeInstallHook.sh
+      timeout: 300
+  AfterInstall:
+    - location: scripts/AfterInstallHook.sh
+      timeout: 300
