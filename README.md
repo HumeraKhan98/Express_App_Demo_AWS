@@ -1,6 +1,6 @@
 # Express_App_Demo_AWS
 This is the basic source code repository for deploying a hello-world express application on EC2 using AWS CodePipeline.
-
+<pre>
 1. Launch EC2 and install codedeploy agent on it
 sudo yum -y update
 sudo yum -y install ruby
@@ -15,3 +15,4 @@ sudo ./install auto
 4. Create IAM role for CodeDeploy with the policy 'AWSCodeDeployRole'
 5. Create the CodeDeploy application and deployment group.
 6. Create the CodePipeline with source as GitHub, CodeBuild as the build tool and CodeDeploy for deploying to the EC2 instance
+</pre>
